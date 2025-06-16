@@ -1,4 +1,4 @@
-### PoatsPageBrightAdjust
+## PoatsPageBrightAdjust
 
 As the name suggests - An extension for FF to allow page specific brightness control.
 Got the idea when the other adjust brightness extension wouldn't work for all sites, as well as
@@ -6,7 +6,7 @@ being a bit chompy and not fun to work with.
 
 * Disclaimer - In this alpha release it really is "per page" and not domain - Will fix in ToDo *
 
-#### Essentials
+### Essentials
 
 The content.js creates a <div> gray cover background-color rgb(dec%, dec%, dec%) with 100 % as default (white). It listens
 for sendMessage of type "update-brightness" for a new level to set the value to.
@@ -19,13 +19,13 @@ via slider in popup.html. A debouncer is applied in code so new levels only get 
 popup.html is the finest GUI you have seen with a simple slider to set levels and a checkbutton to enable/disable
 dim.
 
-#### Install
+### Install
 
 To test it download all files to a folder. Open FF about:debugging#/runtime/this-firefox and load as temporary addon
 from the manifest.json file.
 [For private mode users you will have to Manage the extension and allow it in private]
 
-#### ToDo
+### ToDo
 
 * Adjust so it will be per domain and not page
 * Ensure that least necessary permissions are set
