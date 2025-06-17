@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   slider.value = level;
   sliderValue.textContent = `${level}%`;
 
-  if (enabled) {
+  /* if (enabled) {
     await updateOverlay(tab.id, level);
-  }
+  } */
 
   toggle.addEventListener("change", async () => {
     const enabledNow = toggle.checked;

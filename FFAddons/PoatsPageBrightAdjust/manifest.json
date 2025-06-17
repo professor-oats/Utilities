@@ -1,3 +1,4 @@
+
 {
   "manifest_version": 2,
   "name": "Firefox Brightness Cover",
@@ -25,5 +26,8 @@
     "gecko": {
       "id": "brightnesscover@example.com"
     }
+  },
+  "background": {
+    "scripts": ["background.js"]
   }
 }

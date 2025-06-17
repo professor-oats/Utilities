@@ -55,3 +55,4 @@ browser.runtime.onMessage.addListener((message) => {
     applyBrightness(message.level);
   }
 });
+
