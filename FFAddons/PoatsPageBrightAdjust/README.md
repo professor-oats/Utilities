@@ -4,8 +4,6 @@ As the name suggests - An extension for FF to allow page specific brightness con
 Got the idea when the other adjust brightness extension wouldn't work for all sites, as well as
 being a bit chompy and not fun to work with.
 
-* Disclaimer - In this alpha release it really is "per page" and not domain - Will fix in ToDo *
-
 ### Essentials
 
 The content.js creates a <div> gray cover background-color rgb(dec%, dec%, dec%) with 100 % as default (white). It listens
