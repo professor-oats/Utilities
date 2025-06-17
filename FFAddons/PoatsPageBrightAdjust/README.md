@@ -27,6 +27,6 @@ from the manifest.json file.
 
 ### ToDo
 
-* Adjust so it will be per domain and not page
+* Adjust so it will be per domain and not page - Update 20250717 - Today it works without any change of code. Will still go through code and do tests
 * Ensure that least necessary permissions are set
 * Consider how many domains to store setting for at a time and when to do cleanup
