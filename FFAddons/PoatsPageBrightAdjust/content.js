@@ -34,6 +34,22 @@ function applyBrightness(level) {
   }
 }
 
+// On load, check domain settings and apply if enabled
+(async () => {
+  const hostname = location.hostname;
+  const ENABLE_KEY = `${hostname}_enabled`;
+  const LEVEL_KEY = `${hostname}_level`;
+
+  const stored = await browser.storage.sync.get([ENABLE_KEY, LEVEL_KEY]);
+  const enabled = stored[ENABLE_KEY] ?? false;
+  const level = stored[LEVEL_KEY] ?? 100;
+
+  if (enabled) {
+    applyBrightness(level);
+  }
+})();
+
+// Listen for updates from popup
 browser.runtime.onMessage.addListener((message) => {
   if (message.type === "update-brightness") {
     applyBrightness(message.level);
