@@ -19,6 +19,11 @@ via slider in popup.html. A debouncer is applied in code so new levels only get 
 popup.html is the finest GUI you have seen with a simple slider to set levels and a checkbutton to enable/disable
 dim.
 
+### Misc
+
+If picky about minimalism and to opt out of auto update of levels onActivated tabs, and only do it by prompting the popup.html
+Remove background.js from manifest.json and uncomment updateOverlay(tab.id, level) in popup.js
+
 ### Install
 
 To test it download all files to a folder. Open FF about:debugging#/runtime/this-firefox and load as temporary addon
@@ -32,5 +37,5 @@ from the manifest.json file.
 
 ### 20250618
 
-* Consider to sendMessage to all tabs of a domain as a preload/preset in background.js whenever a user changes brightness levels
+* Consider to sendMessage to all tabs of a domain as a preload/preset in background.js whenever a user changes brightness levels - Instead of onActivated listener
   may yield smoother render, and consider run_at: document_start for content.js
