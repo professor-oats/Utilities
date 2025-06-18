@@ -29,3 +29,8 @@ from the manifest.json file.
 
 * Ensure that least necessary permissions are set
 * Consider how many domains to store setting for at a time and when to do cleanup
+
+### 20250618
+
+* Consider to sendMessage to all tabs of a domain as a preload/preset in background.js whenever a user changes brightness levels
+  may yield smoother render, and consider run_at: document_start for content.js
