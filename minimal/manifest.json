@@ -1,0 +1,30 @@
+
+{
+  "manifest_version": 2,
+  "name": "Firefox Brightness Cover",
+  "version": "1.0",
+  "description": "Add a customizable brightness cover to any site.",
+  "permissions": ["storage", "tabs", "activeTab", "<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "browser_action": {
+    "default_area": "navbar",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "32": "icon32.png",
+      "48": "icon48.png"
+    },
+    "default_title": "Adjust Page Brightness"
+  },
+  "applications": {
+    "gecko": {
+      "id": "brightnesscover@example.com"
+    }
+  }
+}
