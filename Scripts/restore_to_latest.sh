@@ -16,7 +16,9 @@ echo "[*] This will restore your VM $VMID to the latest snapshot."
 echo
 
 echo "[*] Getting latest snapshot timestamp from PBS..."
-TIMESTAMP=$(ssh -i "$SSH_KEY" "$SSH_USER@$PBS_SERVER" "ls -1t ${PBS_VM_PATH} | head -n 1")
+#  TIMESTAMP=$(ssh -i "$SSH_KEY" "$SSH_USER@$PBS_SERVER" "ls -1t ${PBS_VM_PATH} | head -n 1") # Since this gives the last modified it can sometime cuck backup
+#  Updated command adjusts to this by specifying the format for the snapshot names and sorting
+TIMESTAMP=$(ssh -i "$SSH_KEY" "$SSH_USER@$PBS_SERVER" "ls -1A ${PBS_VM_PATH} | grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}T' | sort | tail -1")
 
 if [[ -z "$TIMESTAMP" ]]; then
     echo "[!] Could not detect a backup folder on PBS server $PBS_SERVER"
