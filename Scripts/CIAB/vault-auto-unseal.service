@@ -9,6 +9,8 @@ User=vault
 Group=vault
 
 WorkingDirectory=/home/vault
+RuntimeDirectory=vault
+RuntimeDirectoryMode=0700
 ExecStart=/home/vault/vault-tpm-unseal.sh
 
 # Explicit environment (systemd does NOT read .bashrc)
