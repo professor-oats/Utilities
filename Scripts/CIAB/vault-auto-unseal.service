@@ -1,0 +1,38 @@
+[Unit]
+Description=TPM-backed Vault Auto Unseal
+After=dev-tpmrm0.device vault.service
+Requires=vault.service
+
+[Service]
+Type=oneshot
+User=vault
+Group=vault
+
+WorkingDirectory=/home/vault
+ExecStart=/home/vault/vault-tpm-unseal.sh
+
+# Explicit environment (systemd does NOT read .bashrc)
+Environment=TPM2TOOLS_TCTI=device:/dev/tpmrm0
+Environment=VAULT_ADDR=https://vault-host.enclave.local:8200
+Environment=VAULT_CACERT=/opt/vault/tls/ca.crt
+Environment=VAULT_CLIENT_CERT=/opt/vault/tls/vault-client.crt
+Environment=VAULT_CLIENT_KEY=/opt/vault/tls/vault-client.key
+
+# Security hardening
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+
+# Explicit filesystem access
+ReadWritePaths=/run
+ReadOnlyPaths=/opt/vault
+
+# TPM device access
+DeviceAllow=/dev/tpmrm0 rw
+
+[Install]
+WantedBy=multi-user.target
